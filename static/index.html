@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give me a password   </title>
+    <style>
+body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://media.istockphoto.com/id/1298894806/photo/cute-little-kitten-on-white-background.webp?s=2048x2048&w=is&k=20&c=5PFbck_qMU5FJVLCrUSVTUs7uTqHvLoMVmfnEUqHNpA=') no-repeat -200px center/auto 100%;
+        }
+        .ourbox {
+            background: linear-gradient(135deg, #ffffff, #e6e6e6);
+            padding: 20px;
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+            /* border: 2px solid #4CAF50; Add a border for a sleek look */
+            /* transform: rotate(-2deg); Slight tilt */
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+        .response {
+            margin-top: 15px;
+            padding: 10px;
+            background: #eaeaea;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 20px; /* Increased font size */
+            font-weight: bold; /* Make the text bold */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ourbox">
+        <h2>Your New password</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="text" id="service" placeholder="Enter Service">
+        <button onclick="submitForm()">Submit</button>
+        <div class="response" id="response"></div>
+    </div>
+
+    <script>
+        async function submitForm() {
+            const username = document.getElementById("username").value.trim();
+            const service = document.getElementById("service").value.trim();
+            const responseDiv = document.getElementById("response");
+
+            if (!username || !service) {
+                responseDiv.innerHTML = "<p style='color: red;'>Both fields are required.</p>";
+                return;
+            }
+            // We take a username and password to build the seed.
+            const data = {
+                string1: username,
+                string2: service
+            };
+
+
+            // Change this to sig4 long term.
+            try {
+                const response = await fetch("http://127.0.0.1:8000/makeapassword", {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",  // Equivalent to `-H 'accept: application/json'`
+                        "Content-Type": "application/json"  // Equivalent to `-H 'Content-Type: application/json'`
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const responseData = await response.json();
+
+
+                const password = responseData.our_password || '';
+                responseDiv.innerHTML = `<p>${password}</p>`;
+
+                document.getElementById("username").value = responseData.string1 || username;
+                document.getElementById("service").value = responseData.string2 || service;
+
+            } catch (error) {
+                // Handle any errors that occur during the request
+                responseDiv.innerHTML = "<p style='color: red;'>Is the api offline. We didnt find any data.</p>";
+                console.error("Error:", error);
+            }
+        }
+    </script>
+
+</body>
+</html>
