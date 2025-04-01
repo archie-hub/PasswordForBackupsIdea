@@ -8,6 +8,8 @@ Copy and paste the output from terraform below to do a basic test.
 Then run 
 
 (.venv) archie@archie passwordendpoints % python python_tests.py test this
+
+but really moved to pytest.
 """
 
 api_gateway_url = "https://gz77c0r82h.execute-api.us-east-1.amazonaws.com/dev/execute"
