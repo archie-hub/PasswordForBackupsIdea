@@ -8,7 +8,7 @@ Is it the most secure, could it be more secure for sure and I can think of ways 
 
 <img src="./images/myscreenshot.png" alt="dsfsdf" width="50%">
 
-# Deploy the api to Terraform
+# Deploy the code to AWS using Terraform
 ```
 archie@archie passwordendpoints % terraform apply --auto-approve        
 data.archive_file.lambda_zip: Reading...
