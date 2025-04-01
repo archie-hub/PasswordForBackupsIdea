@@ -1,12 +1,9 @@
 # Initial Idea for reproducing passwords.
-Initially created for internal use to create reproducible passwords without the need to store them.
-
+Initially created for internal use to create reproducible passwords without the need to store them but really whats here is a proof of concept.
 As long as the starting seed is secured and there are additional steps to stop repeat tries this should be secure for a lot of applications. Not your bank or your lastpass but ...
 This could be adapted for any to allow any service not exposed to the internet.
 
 Is it the most secure, could it be more secure for sure and I can think of ways to do that but for some usecases its useful.
-
-
 
 
 <img src="./images/myscreenshot.png" alt="dsfsdf" width="50%">
