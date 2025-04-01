@@ -3,21 +3,21 @@ from lambda_src.modules import generate_password
 import requests
 
 # Example usage
-api_gateway_url = "https://gz77c0r82h.execute-api.us-east-1.amazonaws.com/dev/execute"
-api_key_value = "REbi4I5tBpUOh9fZ8Xrv8M2AcO2fmeXYwvem3250"
+api_gateway_url = "https://fme10u4ey0.execute-api.us-east-1.amazonaws.com/dev/execute"
+api_key_value = "7CB3hv6BTraEnB6Qtf4dn9zsc7HW9tpC4lcn1Jlg"
 
 
 def test_get_data():
     assert (
         generate_password(seed="gdg", length=15, defaultseed="blah blah")
-        == "62plsPoS1WuBgRw"
+        == "G9mVLHYWWYYjdaK"
     )
 
 
 def test_expected_password():
     assert (
         generate_password(seed="s", length=15, defaultseed="blah blah")
-        == "WQnoMOEHKl0Sr1t"
+        == "N7Dt0KTdodf5uwF"
     )
 
 
@@ -30,7 +30,7 @@ def test_api_api_blah_blah_seed_UPPER():
             headers=headers,
         )
         assert response.status_code == 200
-        assert response.json() == {"password": "62plsPoS1WuBgRw"}
+        assert response.json() == {"password": "G9mVLHYWWYYjdaK"}
         assert len(response.json().get("password")) == 15
 
 
