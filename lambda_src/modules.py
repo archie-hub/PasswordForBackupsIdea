@@ -2,7 +2,7 @@ import hashlib
 import base64
 DEFAULTSEED = "blah blah"
 def generate_password(seed: str, length: int = 6, defaultseed: str = DEFAULTSEED) -> str:
-    """
+    """I should have a bit more of a doc string.
     """
     biz = seed.lower() + defaultseed.lower()
     salt = hashlib.sha256(biz.encode()).hexdigest()[:20]
