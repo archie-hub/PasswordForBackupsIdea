@@ -3,7 +3,7 @@ import sys
 import json
 
 """
-By the time you see this this will all be invalid and I dont hardcode stuff... putting here for example
+By the time you see this this the keys will all be invalid and I dont hardcode stuff... putting here for example
 Copy and paste the output from terraform below to do a basic test.
 Then run 
 
