@@ -154,7 +154,6 @@ output "api_gateway_url" {
 
 # Output API Key Value (without sensitive flag to display the key)
 output "api_key_value" {
-  #value       = aws_api_gateway_api_key.lambda_api_key.value
   value = nonsensitive(aws_api_gateway_api_key.lambda_api_key.value)
   description = "Use this API Key to authenticate requests"
 }
