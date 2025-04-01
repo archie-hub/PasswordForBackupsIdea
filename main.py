@@ -35,7 +35,7 @@ async def makepassword(request: PasswordRequest):
     generated_seed = request.string1 + request.string2
     password = generate_password(generated_seed,
                                  length=15,
-                                 defaultseed=getenv("STARTSEED"))
+                                 defaultseed=getenv("STARTSEED")) #<= Reading this from podman env.
     return {"our_password": password}
 
 @router.get("/", response_class=HTMLResponse)
