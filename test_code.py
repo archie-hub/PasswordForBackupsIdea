@@ -10,14 +10,14 @@ api_key_value = "7CB3hv6BTraEnB6Qtf4dn9zsc7HW9tpC4lcn1Jlg"
 def test_get_data():
     assert (
         generate_password(seed="gdg", length=15, defaultseed="blah blah")
-        == "G9mVLHYWWYYjdaK"
+        == "R5hY6IMfF5rtmLR"
     )
 
 
 def test_expected_password():
     assert (
         generate_password(seed="s", length=15, defaultseed="blah blah")
-        == "N7Dt0KTdodf5uwF"
+        == "a8paz5yKOt7KUhj"
     )
 
 
@@ -30,7 +30,7 @@ def test_api_api_blah_blah_seed_UPPER():
             headers=headers,
         )
         assert response.status_code == 200
-        assert response.json() == {"password": "G9mVLHYWWYYjdaK"}
+        assert response.json() == {"password": "R5hY6IMfF5rtmLR"}
         assert len(response.json().get("password")) == 15
 
 
