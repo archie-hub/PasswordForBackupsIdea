@@ -63,6 +63,7 @@ podman build -t passwords-app .
 ```
 
 # Run the container - Not in daemon mode.
+I could use an env file but putting this here in the short term.
 
 ```
 podman run --rm -p 8000:8000 --env STARTSEED="something juicy" --name my_passwordsapp passwords-app 
