@@ -14,7 +14,7 @@ but really moved to pytest.
 
 # Example usage
 api_gateway_url = "https://fme10u4ey0.execute-api.us-east-1.amazonaws.com/dev/execute"
-api_key_value = "7CB3hv6BTraEnB6Qtf4dn9zsc7HW9tpC4lcn1Jlg"
+api_key_value = "test scanner"
 
 
 def test_get_data():
