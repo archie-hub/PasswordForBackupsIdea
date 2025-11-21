@@ -2,6 +2,16 @@ import pytest
 from lambda_src.modules import generate_password
 import requests
 
+"""
+By the time you see this this the keys will all be invalid and I dont hardcode stuff... putting here for example
+Copy and paste the output from terraform below to do a basic test.
+Then run 
+
+(.venv) archie@archie passwordendpoints % python python_tests.py test this
+
+but really moved to pytest.
+"""
+
 # Example usage
 api_gateway_url = "https://fme10u4ey0.execute-api.us-east-1.amazonaws.com/dev/execute"
 api_key_value = "7CB3hv6BTraEnB6Qtf4dn9zsc7HW9tpC4lcn1Jlg"
